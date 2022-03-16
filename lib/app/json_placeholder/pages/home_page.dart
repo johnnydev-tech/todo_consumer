@@ -24,6 +24,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final todos = todoStore.todos;
     return Scaffold(
+      appBar: AppBar(),
       body: ListView.builder(
         itemCount: todos.length,
         itemBuilder: (_, index) {
