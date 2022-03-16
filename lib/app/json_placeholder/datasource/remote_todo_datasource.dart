@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
-import 'package:todo_consumer/app/json_placeholder/models/todo_model.dart';
+
+import '../models/todo_model.dart';
 
 class RemoteTodoDatasource {
   Dio dio = Dio();

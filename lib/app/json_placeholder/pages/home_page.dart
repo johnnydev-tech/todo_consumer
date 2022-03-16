@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:todo_consumer/app/json_placeholder/store/todo_store.dart';
+
+import '../store/todo_store.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -16,23 +17,26 @@ class _HomePageState extends State<HomePage> {
     todoStore.addListener(() {
       setState(() {});
     });
+    todoStore.getAllTodos();
   }
 
   @override
   Widget build(BuildContext context) {
     final todos = todoStore.todos;
-    return ListView.builder(
-      itemCount: todos.length,
-      itemBuilder: (_, index) {
-        final todo = todos[index];
-        return CheckboxListTile(
-          value: todo.isChecked,
-          onChanged: (value) {},
-          title: Text(
-            todo.titile,
-          ),
-        );
-      },
+    return Scaffold(
+      body: ListView.builder(
+        itemCount: todos.length,
+        itemBuilder: (_, index) {
+          final todo = todos[index];
+          return CheckboxListTile(
+            value: todo.isChecked,
+            onChanged: (value) {},
+            title: Text(
+              todo.titile,
+            ),
+          );
+        },
+      ),
     );
   }
 }
