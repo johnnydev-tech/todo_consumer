@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
             value: todo.isChecked,
             onChanged: (value) {},
             title: Text(
-              todo.titile,
+              todo.title,
             ),
           );
         },

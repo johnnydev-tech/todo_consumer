@@ -8,5 +8,5 @@ void main() async {
 
   final store = TodoStore();
   await store.getAllTodos();
-  print(store.todos[0].titile);
+  print(store.todos[0].title);
 }

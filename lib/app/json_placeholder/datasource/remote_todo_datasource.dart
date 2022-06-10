@@ -14,7 +14,7 @@ class RemoteTodoDatasource {
   Future<dynamic> setTodo(TodoModel todo) async {
     final data = {
       'id': todo.id,
-      'title': todo.titile,
+      'title': todo.title,
     };
 
     final response = await dio.put(
