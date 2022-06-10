@@ -33,7 +33,7 @@ jobs:
         uses: google-github-actions/setup-gcloud@v0
 
       - name: Run Unit tests
-        run: flutter test test/unit
+        run: flutter test test
 
       # - name: Run Widget tests
       #   run: flutter test test/widget
