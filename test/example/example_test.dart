@@ -21,13 +21,4 @@ main() {
     expect(() => calcularDesconto(valorSemDesconto, desconto, false),
         throwsA(isA<Exception>()));
   });
-
-  test('Deve retornar um erro pelo valor do desconto ser <=0', () {
-    const desconto = 0.0;
-    const valorSemDesconto = 150.0;
-    const valorComDesconto = valorSemDesconto - desconto;
-
-    expect(() => calcularDesconto(valorSemDesconto, desconto, false),
-        valorComDesconto);
-  });
 }
