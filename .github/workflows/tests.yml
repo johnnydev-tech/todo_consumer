@@ -35,8 +35,8 @@ jobs:
       - name: Run Unit tests
         run: flutter test test/unit
 
-      - name: Run Widget tests
-        run: flutter test test/widget
+      # - name: Run Widget tests
+      #   run: flutter test test/widget
       
 #       - name: Run Android integration tests
 #         run: ./integration_android.sh
