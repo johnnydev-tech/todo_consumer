@@ -1,24 +1,73 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:todo_consumer/app/desconto/store/desconto_store.dart';
 
 main() {
-  test(
-    'Deve calcular desconto corretamente utilizando valores decimais',
+  group(
+    'GRUPO 1 - CONVERT INT TO DOUBLE:',
     () {
-      const desconto = 25.0;
-      const valorSemDesconto = 150.0;
-      const valorComDesconto = valorSemDesconto - desconto;
+      test(
+        'TESTE 1: Deve retornar um erro se o valor for uma String vazia',
+        () {
+          debugPrint("===============================");
+          var value = "";
 
-      expect(calcularDesconto(valorSemDesconto, desconto, false),
-          valorComDesconto);
+          debugPrint("PARAMETRO: ''$value");
+
+          try {
+            debugPrint("RESULTADO: ${intToDouble(value)}");
+          } catch (e) {
+            debugPrint("RESULTADO: ${e.toString()}");
+          }
+
+          expect(
+            () => intToDouble(value),
+            throwsA(isA<Exception>()),
+          );
+        },
+      );
+
+      test(
+        'Teste 2: Deve retornar um erro se o valor for uma String',
+        () {
+          debugPrint("===============================");
+          var value = "abc";
+
+          debugPrint("PARAMETRO: $value");
+          try {
+            debugPrint("RESULTADO: ${intToDouble(value)}");
+          } catch (e) {
+            debugPrint("RESULTADO: ${e.toString()}");
+          }
+
+          expect(
+            () => intToDouble(value),
+            throwsA(isA<Exception>()),
+          );
+        },
+      );
+
+      test(
+        'TESTE 3: Deve retornar Sucesso',
+        () {
+          debugPrint("===============================");
+          var value = 2;
+
+          debugPrint("PARAMETRO: $value");
+
+          try {
+            debugPrint("RESULTADO: ${intToDouble(value)}");
+          } catch (e) {
+            debugPrint("RESULTADO: ${e.toString()}");
+          }
+
+          expect(
+            intToDouble(value),
+            2,
+          );
+        },
+      );
+      debugPrint("===============================");
     },
   );
-
-  test('Deve retoirnar um erro pelo valor do desocnto ser <=0', () {
-    const desconto = 0.0;
-    const valorSemDesconto = 150.0;
-
-    expect(() => calcularDesconto(valorSemDesconto, desconto, false),
-        throwsA(isA<Exception>()));
-  });
 }

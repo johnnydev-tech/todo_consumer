@@ -1,15 +1,11 @@
-double calcularDesconto(double valorInicial, double desconto, bool isPercent) {
-  if (desconto <= 0) {
-    throw Exception("O desconto deve ser maior que zero!");
+double intToDouble(value) {
+  if (value is String) {
+    if (value.isEmpty) {
+      throw Exception("O valor não pode ser vazio!");
+    }
+
+    throw Exception("O valor não pode ser uma string!");
   }
 
-  if (valorInicial <= 0) {
-    throw Exception("O valor inicial deve ser maior que zero!");
-  }
-
-  if (isPercent) {
-    return valorInicial - (valorInicial * desconto / 100);
-  }
-
-  return valorInicial - desconto;
+  return value.toDouble();
 }
